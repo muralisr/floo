@@ -1,4 +1,4 @@
-# how to determine amount of cacheability of an app
+# how to determine amount of cacheability of an app to estimate whether it is worth trying to opimize
 1. rebuild the apk using apktool + our helpers (https://github.com/muralisr/asyncprinter)
 2. run DetermineCacheability on the rebuilt apk and generate instrumented apk
 4. run instrumented apk. copy over the timestamp info and the memo table info files
