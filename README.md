@@ -6,9 +6,7 @@ There are two main components for Floo.
 * Instrumenter: this is the offline component of Floo. Various scripts are used to call Soot APIs which are able to process each line of code in a given app or framework. This instrumenter generates the read/write signatures of each function, and also modifies the functions to include a call to the memoization helper which is now incorporated into the apps as described above. Note that we need to explicitly exclude certain functions from memoization as they tend to cause a crash if modified - we just find out this list my trial and error. In addition, we also exclude the functions of the cache helper. 
 
 ## Instrumenter
-# Special Credits
-[This](https://github.com/noidsirius/SootTutorial) project was quite helpful in getting this working, and I've based most of my code and Readme on it. 
-
+* Special Credits: [This](https://github.com/noidsirius/SootTutorial) project was quite helpful in getting this working, and I've based most of my code and Readme on it. 
 * `./gradlew run --args="HeapRWFinder <output_json> <apkfile>"`: Generate the read write signatures of each function in the given apk and store it in the `json` file. 
 * `./gradlew run --args="DetermineCacheability <apk_file>"`: Add calls to the helper that allows the helper to individually make the decision to cache each invocation or not.
 * `./gradlew run --args="ComputeCacher <apk_file>"`: Work in conjuction with the helper to return memoized writes if the function is deemed cacheable.
